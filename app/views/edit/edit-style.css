@@ -1,0 +1,10 @@
+button {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+#buttons {
+    padding: 10px 100px;
+    height: 25px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,16 @@
+<!-- top bar with 3 buttons i b u , each with ng-click hooked up to controller. make em work!
+only for selected text
+textarea larger, resemble google docs -->
+<div id="buttons">
+    <button class="btn btn-default" ng-click="bold()">B</button>
+    <button class="btn btn-default" ng-click="italicize()">I</button>
+    <button class="btn btn-default" ng-click="underline()">U</button>
+</div>
+<!-- <textarea id="txtBlock" ng-model="textInput" ng-mouseup="getSelected()" ng-style="styled">
+    {{updatedText}}
+</textarea> -->
+<!-- <div format-text-area="" contenteditable="" id="txtBlock" ng-model="textInput" ng-mouseup="getSelected()" ng-style="styled">
+    {{updatedText}}hvhgvhgv
+</div> -->
+<x-format-text-area>
+</x-format-text-area>
