@@ -1,28 +1,27 @@
 angular.module('bgooDoc.edit', [])
 
-// .directive("formatTextArea", function() {
-//     return {
-//         //A: attribute matches, C: class, E: element name
-//         restrict: "A",
-//         require: "ngModel",
-//         templateURL: "/app/components/formatTextArea/formatTextArea.html",
-//         link: function(scope, element, attrs, ngModel) {
+//templateURL: "/app/components/formatTextArea/formatTextArea.html",
 
-//             function read() {
-//                 ngModel.$setViewValue(element.html());
-//             }
+.directive("contenteditable", function() {
+    return {
+        restrict: "A",
+        require: "ngModel",
+        link: function(scope, element, attrs, ngModel) {
 
-//             ngModel.$render = function() {
-//                 element.html(ngModel.$viewValue || "");
-//             };
+            function read() {
+                ngModel.$setViewValue(element.html());
+            }
 
-//             element.bind("blur keyup change", function() {
-//                 scope.$apply(read);
-//             });
-//         }
-//     };
-// })
+            ngModel.$render = function() {
+                element.html(ngModel.$viewValue || "");
+            };
 
+            element.bind("blur keyup change", function() {
+                scope.$apply(read);
+            });
+        }
+    };
+})
 
 
 .controller('EditController', [
@@ -32,8 +31,7 @@ angular.module('bgooDoc.edit', [])
     function($scope) {
 
         var startSelec, endSelec;
-        $scope.typedText;
-        $scope.textInput;
+        $scope.text = "";
 
         $('#txtBlock').on('mousedown', function() {
             $('#txtBlock').on('mouseup', function() {
@@ -45,12 +43,7 @@ angular.module('bgooDoc.edit', [])
             $scope.updatedText = "something";
         }
 
-        $scope.bold = function() {
-            //var selected = $scope.getSelected();
-            //var allText = textArea;
-            //$scope.updatedText = selected;
-            //$scope.getAllText()
-        }
+        $scope.bold = function() {}
 
         $scope.italicize = function() {
             console.log(startSelec, endSelec)
