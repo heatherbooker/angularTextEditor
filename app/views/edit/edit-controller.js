@@ -23,20 +23,19 @@ angular.module('bgooDoc.edit', [])
 //     };
 // })
 
+
+
 .controller('EditController', [
 
     "$scope",
 
     function($scope) {
 
-        var typedText = $scope.textInput;
-
         var startSelec, endSelec;
 
         $('#txtBlock').on('mousedown', function() {
             $('#txtBlock').on('mouseup', function() {
                 //alert(window.getSelection().toString());
-                $scope.textInput = '<i>' + $scope.textInput + '</i>';
             });
         });
 
@@ -54,7 +53,7 @@ angular.module('bgooDoc.edit', [])
         $scope.italicize = function() {
             console.log(startSelec, endSelec)
             console.log($scope.textInput);
-            $scope.textInput = '<i>' + $scope.textInput + '</i>'
+            $scope.textInput = '<i>' + $scope.textInput + '</i>';
         }
 
         $scope.getSelected = function() {
