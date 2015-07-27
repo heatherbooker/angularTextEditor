@@ -32,6 +32,8 @@ angular.module('bgooDoc.edit', [])
     function($scope) {
 
         var startSelec, endSelec;
+        $scope.typedText;
+        $scope.textInput;
 
         $('#txtBlock').on('mousedown', function() {
             $('#txtBlock').on('mouseup', function() {
@@ -47,13 +49,13 @@ angular.module('bgooDoc.edit', [])
             //var selected = $scope.getSelected();
             //var allText = textArea;
             //$scope.updatedText = selected;
-            $scope.getAllText()
+            //$scope.getAllText()
         }
 
         $scope.italicize = function() {
             console.log(startSelec, endSelec)
             console.log($scope.textInput);
-            $scope.textInput = '<i>' + $scope.textInput + '</i>';
+            $scope.typedText = '<i>' + $scope.textInput + '</i>';
         }
 
         $scope.getSelected = function() {
@@ -65,7 +67,7 @@ angular.module('bgooDoc.edit', [])
         }
 
         $scope.getAllText = function() {
-            console.log($scope.textInput);
+            //console.log($scope.textInput);
         }
 
     }
