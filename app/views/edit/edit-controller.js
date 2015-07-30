@@ -1,11 +1,12 @@
 angular.module('bgooDoc.edit', [])
 
-//templateURL: "/app/components/formatTextArea/formatTextArea.html",
+//templateUrl: "/app/components/formatTextArea/formatTextArea.html",
 
-.directive("contenteditable", function() {
+.directive("formatTextArea", function() {
     return {
-        restrict: "A",
+        //restrict: "A",
         require: "ngModel",
+        templateUrl: "/app/components/formatTextArea/formatTextArea.html",
         link: function(scope, element, attrs, ngModel) {
 
             function read() {
@@ -48,7 +49,7 @@ angular.module('bgooDoc.edit', [])
         $scope.italicize = function() {
             console.log(startSelec, endSelec)
             console.log($scope.textInput);
-            $scope.typedText = '<i>' + $scope.textInput + '</i>';
+            $scope.text = 'nnnnn<i>' + $scope.text + '</i>';
         }
 
         $scope.getSelected = function() {
