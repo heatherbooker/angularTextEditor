@@ -23,6 +23,8 @@ angular.module('bgooDoc.textarea', [])
     };
 })
 
+
+
 .controller('textAreaController', [
     '$scope',
     function($scope) {

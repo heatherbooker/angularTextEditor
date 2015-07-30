@@ -1,28 +1,29 @@
 angular.module('bgooDoc.edit', [])
 
-//templateUrl: "/app/components/formatTextArea/formatTextArea.html",
 
-.directive("formatTextArea", function() {
-    return {
-        //restrict: "A",
-        require: "ngModel",
-        templateUrl: "/app/components/formatTextArea/formatTextArea.html",
-        link: function(scope, element, attrs, ngModel) {
 
-            function read() {
-                ngModel.$setViewValue(element.html());
-            }
+// .directive("formatTextArea", function() {
+//     return {
+//         //restrict: "A",
+//         require: "ngModel",
+//         templateUrl: "/app/components/formatTextArea/formatTextArea.html",
+//         link: function(scope, element, attrs, ngModel) {
 
-            ngModel.$render = function() {
-                element.html(ngModel.$viewValue || "");
-            };
+//             function read() {
+//                 ngModel.$setViewValue(element.html());
+//             }
 
-            element.bind("blur keyup change", function() {
-                scope.$apply(read);
-            });
-        }
-    };
-})
+//             ngModel.$render = function() {
+//                 element.html(ngModel.$viewValue || "");
+//             };
+
+//             element.bind("blur keyup change", function() {
+//                 scope.$apply(read);
+//             });
+//         }
+//     };
+// })
+
 
 
 .controller('EditController', [
@@ -34,35 +35,22 @@ angular.module('bgooDoc.edit', [])
         var startSelec, endSelec;
         $scope.text = "";
 
-        $('#txtBlock').on('mousedown', function() {
-            $('#txtBlock').on('mouseup', function() {
-                //alert(window.getSelection().toString());
-            });
-        });
-
-        $scope.underline = function() {
-            $scope.updatedText = "something";
-        }
+        $scope.underline = function() {}
 
         $scope.bold = function() {}
 
         $scope.italicize = function() {
-            console.log(startSelec, endSelec)
-            console.log($scope.textInput);
             $scope.text = 'nnnnn<i>' + $scope.text + '</i>';
         }
 
         $scope.getSelected = function() {
-            var textArea = document.getElementById('txtBlock');
-            startSelec = textArea.selectionStart;
-            endSelec = textArea.selectionEnd;
+            // var textArea = document.getElementById('txtBlock');
+            // startSelec = textArea.selectionStart;
+            // endSelec = textArea.selectionEnd;
             //var selected = textArea.value.substring(startSelec, endSelec);
             //console.log(selected)
         }
 
-        $scope.getAllText = function() {
-            //console.log($scope.textInput);
-        }
 
     }
 
