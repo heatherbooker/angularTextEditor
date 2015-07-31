@@ -1,19 +1,17 @@
-angular.module('bgooDoc.textarea', [])
+angular.module('bgooDoc.formatTextArea', [])
 
 .directive('formatTextArea', function() {
     return {
-        //require: "ngModel",
-        controller: 'textAreaController',
-        templateUrl: './app/components/formatTextArea/formatTextArea.html',
-        link: function(scope, element, attrs, ngModel) {
+        restrict: "A",
+        require: "ngModel",
+        link: function(scope, element, attrs, ngModelCtrl) {
 
             function read() {
-                alert('reading');
-                ngModel.$setViewValue(element.html());
-            }
+                ngModelCtrl.$setViewValue(element.html());
+            };
 
-            ngModel.$render = function() {
-                element.html(ngModel.$viewValue || "");
+            ngModelCtrl.$render = function() {
+                element.html(ngModelCtrl.$viewValue || "");
             };
 
             element.bind("blur keyup change", function() {
@@ -22,13 +20,3 @@ angular.module('bgooDoc.textarea', [])
         }
     };
 })
-
-
-
-.controller('textAreaController', [
-    '$scope',
-    function($scope) {
-        $scope.typedText = "lemmings";
-
-    }
-]);

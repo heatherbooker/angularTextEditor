@@ -1,54 +1,52 @@
 angular.module('bgooDoc.edit', [])
 
 
-
-// .directive("formatTextArea", function() {
-//     return {
-//         //restrict: "A",
-//         require: "ngModel",
-//         templateUrl: "/app/components/formatTextArea/formatTextArea.html",
-//         link: function(scope, element, attrs, ngModel) {
-
-//             function read() {
-//                 ngModel.$setViewValue(element.html());
-//             }
-
-//             ngModel.$render = function() {
-//                 element.html(ngModel.$viewValue || "");
-//             };
-
-//             element.bind("blur keyup change", function() {
-//                 scope.$apply(read);
-//             });
-//         }
-//     };
-// })
-
-
-
 .controller('EditController', [
 
     "$scope",
 
     function($scope) {
 
-        var startSelec, endSelec;
         $scope.text = "";
+        var startSelec, endSelec, preSelec, postSelec;
 
         $scope.underline = function() {}
 
         $scope.bold = function() {}
 
         $scope.italicize = function() {
-            $scope.text = 'nnnnn<i>' + $scope.text + '</i>';
+
+            var selected = $scope.getSelected();
+
+            $scope.text = preSelec + '<i>' + selected + '</i>' + postSelec;
+
         }
 
         $scope.getSelected = function() {
-            // var textArea = document.getElementById('txtBlock');
-            // startSelec = textArea.selectionStart;
-            // endSelec = textArea.selectionEnd;
-            //var selected = textArea.value.substring(startSelec, endSelec);
-            //console.log(selected)
+
+            selectionObj = window.getSelection();
+
+            if (selectionObj.isCollapsed) {
+                return ""
+            } else {
+                startSelec = selectionObj.anchorOffset;
+                endSelec = selectionObj.focusOffset;
+            };
+            if (startSelec > endSelec) {
+                startSelec = endSelec;
+                endSelec = selectionObj.anchorOffset;
+            }
+
+            $scope.getRemainder(startSelec, endSelec);
+
+            return window.getSelection().toString()
+        }
+
+        $scope.getRemainder = function(start, end) {
+            preSelec = $scope.text.substring(0, start);
+            postSelec = $scope.text.substring(end);
+            console.log(preSelec);
+            console.log(postSelec);
         }
 
 

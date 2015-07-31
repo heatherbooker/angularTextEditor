@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="app/components/sideBar/sideBar.css">
 <div id="buttons">
     <button class="btn btn-default" ng-click="bold()">B</button>
     <button class="btn btn-default" ng-click="italicize()">I</button>
     <button class="btn btn-default" ng-click="underline()">U</button>
 </div>
-<div side-bar></div>
+{{text}}
+<div contenteditable format-text-area ng-model="text" id="txtBlock"></div>
