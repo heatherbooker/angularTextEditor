@@ -1,4 +1,4 @@
-var app = angular.module('bgooDoc', ['ngRoute', 'bgooDoc.edit', 'bgooDoc.formatTextArea', 'bgooDoc.sideBar']);
+var app = angular.module('blogManager', ['ngRoute', 'blogManager.edit', 'blogManager.formatTextArea', 'blogManager.sideBar']);
 
 //things here are things that need to be accessed thru the entire app, ie controllers
 //services needed only for one view should be included in that view

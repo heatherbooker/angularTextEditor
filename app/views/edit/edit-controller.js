@@ -1,4 +1,4 @@
-angular.module('bgooDoc.edit', [])
+angular.module('blogManager.edit', ['ui.event'])
 
 
 .controller('EditController', [
@@ -8,7 +8,12 @@ angular.module('bgooDoc.edit', [])
     function($scope) {
 
         $scope.text = "";
-        var startSelec, endSelec, preSelec, postSelec;
+        var startSelec, endSelec, preSelec, postSelec, selected;
+        var plainText = "";
+
+        $scope.foo = function(event) {
+            event.preventDefault();
+        }
 
         $scope.underline = function() {}
 
@@ -16,7 +21,11 @@ angular.module('bgooDoc.edit', [])
 
         $scope.italicize = function() {
 
-            var selected = $scope.getSelected();
+            //compare against plainText
+            //if same, do nothing
+            //if different, update
+
+            plainText = $scope.text;
 
             $scope.text = preSelec + '<i>' + selected + '</i>' + postSelec;
 
@@ -25,6 +34,8 @@ angular.module('bgooDoc.edit', [])
         $scope.getSelected = function() {
 
             selectionObj = window.getSelection();
+
+            console.log(selectionObj);
 
             if (selectionObj.isCollapsed) {
                 return ""
@@ -39,7 +50,7 @@ angular.module('bgooDoc.edit', [])
 
             $scope.getRemainder(startSelec, endSelec);
 
-            return window.getSelection().toString()
+            selected = window.getSelection().toString();
         }
 
         $scope.getRemainder = function(start, end) {

@@ -1,4 +1,4 @@
-angular.module("bgooDoc.sideBar", [])
+angular.module("blogManager.sideBar", [])
 
 .directive("sideBar", function() {
     return {

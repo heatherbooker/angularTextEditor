@@ -1,7 +1,9 @@
+<hr>
 <div id="buttons">
-    <button class="btn btn-default" ng-click="bold()">B</button>
-    <button class="btn btn-default" ng-click="italicize()">I</button>
-    <button class="btn btn-default" ng-click="underline()">U</button>
+    <a class="btn-flat" ng-click="bold()">B</a>
+    <a class="btn-flat" ng-click="italicize()">I</a>
+    <a class="btn-flat" ng-click="underline()">U</a>
 </div>
-{{text}}
-<div contenteditable format-text-area ng-model="text" id="txtBlock"></div>
+<hr> {{text}}
+<div style="height:10px"></div>
+<div contenteditable format-text-area ng-model="text" ng-mouseup="getSelected()" ui-keypress="{'tab':'foo($event)'}" id="txtBlock"></div>

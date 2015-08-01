@@ -1,4 +1,4 @@
-angular.module('bgooDoc.formatTextArea', [])
+angular.module('blogManager.formatTextArea', [])
 
 .directive('formatTextArea', function() {
     return {

@@ -1,17 +1,15 @@
 button {
     display: inline-block;
-    margin-bottom: 5px;
 }
 
 #buttons {
-    padding: 10px 100px;
-    height: 25px;
-    margin-bottom: 5px;
+    padding-left: 64px;
 }
 
 #txtBlock {
-    margin: 20px 80px;
-    border: solid grey 1px;
+    margin: 12px 80px;
+    border: solid grey 2px;
     height: 120vh;
     width: 70vw;
+    white-space: pre;
 }
