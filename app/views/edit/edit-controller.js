@@ -1,4 +1,4 @@
-angular.module('blogManager.edit', ['ui.event'])
+angular.module('blogManager.edit', [])
 
 
 .controller('EditController', [
@@ -9,11 +9,10 @@ angular.module('blogManager.edit', ['ui.event'])
 
         $scope.text = "";
         var startSelec, endSelec, preSelec, postSelec, selected;
-        var plainText = "";
+        var bolded = [];
+        var underlined = [];
+        var italicized = [];
 
-        $scope.foo = function(event) {
-            event.preventDefault();
-        }
 
         $scope.underline = function() {}
 
@@ -21,14 +20,15 @@ angular.module('blogManager.edit', ['ui.event'])
 
         $scope.italicize = function() {
 
-            //compare against plainText
-            //if same, do nothing
-            //if different, update
+            italicized.push({
+                start: startSelec,
+                end: endSelec
+            });
 
-            plainText = $scope.text;
+            console.log(italicized);
 
-            $scope.text = preSelec + '<i>' + selected + '</i>' + postSelec;
-
+            $scope.text = preSelec + '<script>alert("foo")' + selected + '</script>' + postSelec;
+            //$scope.text = preSelec + '<i>' + selected + '</i>' + postSelec;
         }
 
         $scope.getSelected = function() {
@@ -51,6 +51,19 @@ angular.module('blogManager.edit', ['ui.event'])
             $scope.getRemainder(startSelec, endSelec);
 
             selected = window.getSelection().toString();
+
+            console.log(selected);
+
+            // var txtbox = document.getElementById("txtBlock");
+            // var startPos = txtbox.selectionStart;
+            // console.log(txtbox.selectionStart);
+            // var endPos = txtbox.selectionEnd;
+            // //console.log(startPos, endPos);
+            // //console.log(txtbox.innerHTML.substring(startPos, endPos));<--this method also gets html
+            // allText = txtbox.textContent; //this method gets only content text
+            // selected = allText.substring(startPos, endPos);
+            // console.log(selected);
+            // $scope.getRemainder(startPos, endPos);
         }
 
         $scope.getRemainder = function(start, end) {
@@ -58,6 +71,7 @@ angular.module('blogManager.edit', ['ui.event'])
             postSelec = $scope.text.substring(end);
             console.log(preSelec);
             console.log(postSelec);
+            console.log(start, end);
         }
 
 
