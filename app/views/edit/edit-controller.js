@@ -78,3 +78,15 @@ angular.module('blogManager.edit', [])
     }
 
 ]);
+
+// Get selected text 
+$('#sel-text').click(function() {
+    alert('doo');
+    $('#result').text($.selection());
+});
+
+// Get selected html 
+$('#sel-html').click(function() {
+    alert('luck');
+    $('#result').text($.selection('html'));
+});
