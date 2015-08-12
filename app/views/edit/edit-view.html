@@ -1,9 +1,15 @@
 <hr>
 <div id="buttons">
-    <a class="btn-flat" ng-click="bold()">B</a>
+    <a class="btn-flat" ng-click="bold()" id="do-replace">B</a>
     <a class="btn-flat" ng-click="italicize()">I</a>
     <a class="btn-flat" ng-click="underline()">U</a>
 </div>
 <hr> {{text}}
 <div style="height:10px"></div>
-<div contenteditable format-text-area ng-model="text" ng-mouseup="getSelected()" id="txtBlock"></div>
+<!-- <div contenteditable format-text-area ng-model="text" ng-mouseup="getSelected()" id="txtBlock"></div> -->
+
+<blockquote contenteditable format-text-area ng-model="text" ng-mouseup="getSelected()" id="txtBlock"></blockquote>
+
+
+
+

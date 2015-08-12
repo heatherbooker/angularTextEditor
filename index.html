@@ -8,8 +8,8 @@
     <script src="assets/nodeModules/angular/angular.js"></script>
     <script src="assets/nodeModules/angular-route/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/lib/select_plugin/src/jquery.selection.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src="/assets/nodeModules/ui-event/dist/event.min.js"></script>
     <!-- CONTROLLERS -->
     <script type="text/javascript" src="app/views/edit/edit-controller.js"></script>
     <!-- COMPONENTS -->
@@ -24,9 +24,25 @@
     <link rel="stylesheet" href="app/views/edit/edit-style.css">
     <link rel="stylesheet" href="app/components/sideBar/sideBar.css">
 
+
     <body>
         <div id="wrapper">
             <div side-bar></div>
             <div ng-view></div>
+                  <input type="button" class="btn-flat" id="sel-text" value="Get selected text" />
+  <input type="button" class="btn-flat" id="sel-html" value="Get selected html" />
+            <div contenteditable>ham and cheese<strong> eggs and </strong>beans words and snorp</div>
+            <div id="result">i existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi existi exist</div>
         </div>
     </body>
+    <script type="text/javascript">
+ // Get selected text / 選択部分のテキストを取得
+$('#sel-text').click(function(){
+  $('#result').text($.selection());
+});
+
+// Get selected html / 選択部分のHTMLを取得
+$('#sel-html').click(function(){
+  $('#result').text($.selection('html'));
+});
+  </script>
