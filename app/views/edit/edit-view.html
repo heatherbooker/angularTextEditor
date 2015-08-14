@@ -1,15 +1,7 @@
-<hr>
-<div id="buttons">
-    <a class="btn-flat" ng-click="bold()" id="do-replace">B</a>
-    <a class="btn-flat" ng-click="italicize()">I</a>
-    <a class="btn-flat" ng-click="underline()">U</a>
-</div>
-<hr> {{text}}
-<div style="height:10px"></div>
-<div contenteditable format-text-area ng-model="text" ng-mouseup="getSelected()" id="txtBlock"></div>
+<button class="btn-flat" ng-click="italicize()">I</button>
 
-            
-
-
-
-
+<button id="sel-text" ng-click="getSelTxt()">
+    get selected text</button>
+<input type="button" class="btn-flat" id="sel-html" ng-click="getSelHtml()" value="Get selected html" />
+<div contenteditable format-text-area ng-model="text" id="fuzz"> </div>
+{{text}}
