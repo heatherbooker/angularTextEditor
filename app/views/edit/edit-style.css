@@ -13,3 +13,8 @@ button {
     width: 70vw;
     white-space: pre;
 }
+
+#fontRange,
+.input-option {
+	width: 30%;
+}

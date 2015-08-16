@@ -1,7 +1,21 @@
+<button class="btn-flat" ng-click="bold()">B</button>
 <button class="btn-flat" ng-click="italicize()">I</button>
+<button class="btn-flat" ng-click="underline()">U</button>
 
-<button id="sel-text" ng-click="getSelTxt()">
-    get selected text</button>
-<input type="button" class="btn-flat" id="sel-html" ng-click="getSelHtml()" value="Get selected html" />
-<div contenteditable format-text-area ng-model="text" id="fuzz"> </div>
-{{text}}
+<input class="input-option" type="range" min="1" max="7" id="fontRange" ng-click="changeFontSize()" />
+
+<div class="input-option">
+    <select id="fontName">
+        <option>Arial</option>
+        <option>Courier</option>
+        <option>Georgia</option>
+        <option>Impact</option>
+        <option>Verdana</option>
+    </select>
+    <label>Font</label>
+</div>
+
+<input type="text" id="fontColor" />
+<button ng-click="changeFontClr()">Colour</button>
+
+<iframe id="txtBlock"> nyeheneyneyenyneyeneyheyneyhyheynyeneyeeyeny</iframe>
