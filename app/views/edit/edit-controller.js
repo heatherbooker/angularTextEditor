@@ -27,8 +27,9 @@ angular.module('blogManager.edit', [])
 
             //make iframe useful
             txtBox.contentWindow.document.designMode = "on";
-            //initialize materialize ui select input
+            //initialize select, colorpicker
             $('select').material_select();
+            $('.colorpicker-element').colorpicker();
 
         })
 
@@ -46,8 +47,8 @@ angular.module('blogManager.edit', [])
 
         $scope.changeFontClr = function() {
             $scope.getTxt();
-            alert('color')
-            doc.execCommand('foreColor', false, 'red');
+            var color = $('.colorpicker-element').colorpicker('getValue', '#ffffff')
+            doc.execCommand('foreColor', false, color);
         }
 
         $scope.underline = function() {
